@@ -685,11 +685,12 @@ def print_plan(
             print(line)
         print()
 
+    moved = "0 files moved yet" if applying else "0 files moved"
     print(
         dim(
             f"{total_files} files ({format_bytes(total_bytes)}) → "
             f"{folder_count} folders · {elapsed:.1f}s · "
-            "0 bytes uploaded · 0 files moved."
+            f"0 bytes uploaded · {moved}."
         )
     )
 
