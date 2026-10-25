@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #0b0e14;
+    color: #e6edf3;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(46, 160, 67, 0.18), transparent 36%),
+      radial-gradient(circle at 92% 88%, rgba(56, 139, 253, 0.16), transparent 42%),
+      linear-gradient(135deg, #0b0e14 0%, #0e1420 100%);
+  }
+  .grid {
+    position: absolute; inset: 0; opacity: 0.22;
+    background-image:
+      linear-gradient(rgba(139, 148, 158, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 148, 158, 0.12) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 82%);
+  }
+  .wrap {
+    position: relative;
+    display: flex;
+    gap: 48px;
+    padding: 62px 68px 58px;
+    height: 100%;
+  }
+  .left { width: 552px; flex: 0 0 552px; }
+  .eyebrow {
+    color: #7ee787;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 92px;
+    line-height: 0.95;
+    margin: 24px 0 18px;
+    letter-spacing: -0.055em;
+    color: #f0f6fc;
+  }
+  .tag {
+    font-size: 27px;
+    color: #9da7b3;
+    margin: 0 0 42px;
+    letter-spacing: -0.02em;
+  }
+  .bullets { display: flex; flex-direction: column; gap: 15px; font-size: 18px; color: #c9d1d9; }
+  .bullet::before { content: "→"; color: #7ee787; margin-right: 12px; font-weight: 700; }
+  .right { flex: 1; display: flex; align-items: center; min-width: 0; }
+  .term {
+    width: 100%;
+    background: #11161f;
+    border: 1px solid #263041;
+    border-radius: 16px;
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.62);
+    overflow: hidden;
+  }
+  .bar {
+    height: 42px;
+    background: #161d28;
+    display: flex;
+    align-items: center;
+    padding: 0 17px;
+    gap: 8px;
+    border-bottom: 1px solid #263041;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .term-title {
+    margin-left: 10px;
+    font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: #7d8590;
+  }
+  pre {
+    margin: 0;
+    padding: 20px 24px 24px;
+    font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.48;
+    color: #c9d1d9;
+    white-space: pre;
+  }
+  .prompt { color: #7ee787; }
+  .dim { color: #6e7681; }
+  .cyan { color: #79c0ff; font-weight: 700; }
+  .yellow { color: #e3b341; }
+  .green { color: #7ee787; }
+  .white { color: #f0f6fc; font-weight: 700; }
+  .footer {
+    position: absolute;
+    left: 68px;
+    bottom: 30px;
+    font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 13px;
+    color: #6e7681;
+  }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="grid"></div>
+<div class="wrap">
+  <div class="left">
+    <div class="eyebrow">Hacktoberfest Open-Source AI · Week 3</div>
+    <h1>Eventually</h1>
+    <p class="tag">Your folder, eventually.</p>
+    <div class="bullets">
+      <div class="bullet">Reads filenames, not files</div>
+      <div class="bullet">Local Llama 3.2 1B through Ollama</div>
+      <div class="bullet">Plans first. Undo always.</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="term">
+      <div class="bar">
+        <span class="dot" style="background:#ff5f57"></span>
+        <span class="dot" style="background:#febc2e"></span>
+        <span class="dot" style="background:#28c840"></span>
+        <span class="term-title">eventually — demo</span>
+      </div>
+      <pre><span class="prompt">$ python3 eventually.py --demo</span>
+
+<span class="white">Eventually 1.0.0</span> <span class="dim">— your folder, eventually.</span>
+
+<span class="cyan">Documents</span> <span class="dim">(4)</span>
+  lease-agreement-signed.pdf
+  meeting-transcript.txt
+  notes-for-monday.md
+  project-brief-final-FINAL.docx
+
+<span class="cyan">Receipts</span> <span class="dim">(3)</span>
+  invoice-october-acme.pdf
+  receipt-cafe-nero.jpg
+  tax-2025-final-v2.pdf
+
+<span class="cyan">Code</span> <span class="dim">(2)</span>
+  main.py
+  package-lock.json
+
+<span class="cyan">To Sort</span> <span class="dim">(1)</span>
+  unknown-file-7f3a.bin
+
+<span class="yellow">20 files → 11 folders · 9.7s</span>
+<span class="green">0 bytes uploaded</span> <span class="dim">· 0 files moved</span></pre>
+    </div>
+  </div>
+</div>
+<div class="footer">github.com/BhushanVidhate-27/eventually</div>
+</body>
+</html>
