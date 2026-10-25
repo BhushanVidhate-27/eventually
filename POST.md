@@ -6,13 +6,13 @@
 
 Eventually is a small Python CLI that tidies a folder without opening a single file. You point it at `~/Downloads`; it reads the names of the loose files, asks a local open-weight model where each one belongs, prints a plan, and waits. `--apply` moves them. `--undo` puts every file back.
 
-It is deliberately not a file manager. It has one job: close the open loop that is my Downloads folder.
+It is not a file manager. It has one job: close the open loop that is my Downloads folder.
 
 The model is Llama 3.2 1B, running through Ollama on my laptop. It chooses among 11 folders: Documents, Spreadsheets, Images, Screenshots, Installers, Archives, Audio, Video, Code, Receipts, and To Sort. The filenames never leave the machine. Neither do the files.
 
 ## Demo
 
-The demo is a 60–90 second screen recording, scripted in [DEMO.md](https://github.com/BhushanVidhate-27/eventually/blob/main/DEMO.md). It needs no live server: local Ollama plus 20 generated filenames.
+The 60–90 second demo script is in [DEMO.md](https://github.com/BhushanVidhate-27/eventually/blob/main/DEMO.md). No hosted server: local Ollama plus 20 generated filenames.
 
 ```bash
 python3 eventually.py --demo
@@ -20,7 +20,7 @@ python3 eventually.py demo-downloads --apply
 python3 eventually.py --undo
 ```
 
-Three beats: the plan (20 files, 11 folders, 9.7 seconds, zero bytes uploaded), the apply (a boring tree of folders), and the undo (all 20 files back at the top level). The last beat matters most: a lazy tool should be easy to reverse.
+Three beats: plan (20 files, 11 folders, 9.7s, zero bytes uploaded), apply (a boring tree), undo (all 20 files back). The last beat matters most: a lazy tool should be easy to reverse.
 
 ## Code
 
@@ -30,7 +30,7 @@ No pip install. No API key. No telemetry.
 
 ## How I Built It
 
-I started with the chore, not the model. The chore is opening Downloads, seeing `lease-agreement-signed.pdf` next to `Figma.dmg` and `voice-note-mom.m4a`, making twenty tiny decisions, and closing the window. I wanted a tool that would make the decision once and then get out of the way.
+I started with the chore, not the model. The chore is opening Downloads, seeing `lease-agreement-signed.pdf` next to `Figma.dmg` and `voice-note-mom.m4a`, making twenty tiny decisions, then closing the window. I wanted a tool that would make the decision once and then get out of the way.
 
 The implementation is plain Python: `pathlib` for the folder, `urllib` for Ollama's `/api/chat` endpoint, and a JSON schema to constrain the model to the 11 folder names. Each file gets one request. The model returns a folder, a confidence, and a one-line reason; the plan groups the results and prints them.
 
